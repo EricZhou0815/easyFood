@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 
+
 namespace easyFood.Models
 {
     public class Category
@@ -13,8 +14,6 @@ namespace easyFood.Models
 
         [BsonElement("Name")]
         public string Name {get;set;}
-
-        public List <Food> Foods {get;set;}
     }
     
 }

@@ -13,7 +13,7 @@ namespace easyFood.Services
         public CategoryService(IConfiguration config)
         {
             var client = new MongoClient(config.GetConnectionString("easyFoodDb"));
-            var database = client.GetDatabase("easyFoodDb");
+            var database = client.GetDatabase("easyFood");
             _categorys = database.GetCollection<Category>("Categorys");
         }
 
