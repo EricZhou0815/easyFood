@@ -56,35 +56,42 @@ An ordering platform for restaurant.
 
 ### Function
 
-User
+User:
+
 	- User: register(user,password), login(user,password), logout(user), getUser(userId), updateUser(userId, user), deleteUser(userId)
 
 	- Admin: login(user,password), logout(user), addUser(user,password), setUserRole(userId, userRole),getUsers(), getUser(userId), updateUser(userId, user), deleteUser(userId)
  
-Order
+Order:
+
 	- User: addOrder(order), viewOrders(userId), viewOrder(orderId),updateOrder(orderId, order), deleteOrder(orderId)
 
 	- Admin: viewOrders(), viewOrders(),viewOrder(orderId), updateOrder(orderId, order), deleteOrder(orderId)
 
 	- Kitchen: updateOrder(orderId, order)
 
-Table
+Table:
+
 	- Admin: addTable(table), bookTable(tableId, status.book), occupyTable(tableId, status.occupied), closeTable(tableId, status.closed), freeTable(tableId, status.free), updateTable(tableId, table), deleteTabe(tableId)
 
 	- User: occupyTable(tableId,status.occupied)
 
-Category
+Category:
+
 	- Admin: addCategory(category), updateCategory(categoryId, category), deleteCategory(categoryId)
 
-Food
+Food:
+
 	- Admin: addFood(food),updateFood(foodId, food), deleteFood(foodId), viewFoods(), viewFood(foodId)
 
 	- User: viewFoodsByCategory(CategoryId), viewFood(foodId)
 
-FoodCart
+FoodCart:
+
 	- User: AddToCart(foodId), ViewCart(), checkout(), updateCart(cartId,cart)
 
-Queue
+Queue:
+
 	- User: addQueue(queue)
 
 	- Admin: addQueue(queue), deleteQueue(queueId), viewQueues(),viewQueue(queueId)
