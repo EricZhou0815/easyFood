@@ -36,23 +36,23 @@ An ordering platform for restaurant.
 
 ### Entity
 
-User (email,name,phone,password,birthday, role, *Order)
+    - User (email,name,phone,password,birthday, role, *Order)
 
-Order (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User )
+    - Order (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User )
 
-FoodItem (*Food, Quantity)
+    - FoodItem (*Food, Quantity)
 
-FoodCart (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User)
+    - FoodCart (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User)
 
-Table (id, Status(Booked,Free,Ocupied,Closed),NumberOfPeople, *Order, User )
+    - Table (id, Status(Booked,Free,Ocupied,Closed),NumberOfPeople, *Order, User )
 
-Food (name, Price, PictureUrl, Summary, Material, Description, stockStatus (empty, inStock), Category)
+    - Food (name, Price, PictureUrl, Summary, Material, Description, stockStatus (empty, inStock), Category)
 
-Category (name, Food)
+    - Category (name, Food)
 
-Queue (QueueId, User, NumberOfPeople, Time)
+    - Queue (QueueId, User, NumberOfPeople, Time)
 
-Payment  (TBD...)
+    - Payment  (TBD...)
 
 ### Function
 
@@ -92,13 +92,13 @@ Queue
 
 ### Tech Stacks
 
-Order, Queue -> websocket
+    - Order, Queue -> websocket
+    
+    - Database: mongoDB
 
-database: mongoDB
+    - Back-end: .net core/go
 
-back-end: .net core/go
-
-front-end: react
+    - Front-end: react
 
 ### UI Design
 
