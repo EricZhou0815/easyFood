@@ -38,13 +38,13 @@ An ordering platform for restaurant.
 
     - User (email,name,phone,password,birthday, role, *Order)
 
-    - Order (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User )
+    - Order (Time, NumOfPeople, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User )
 
     - FoodItem (*Food, Quantity)
 
     - FoodCart (Time, *FoodItem, Total Cost, Status(Cooking, Unpaid, Paid), User)
 
-    - Table (id, Status(Booked,Free,Ocupied,Closed),NumberOfPeople, *Order, User )
+    - Table (id, Status(Booked,Free,Ocupied,Closed),NumberOfSeats, *Order, User )
 
     - Food (name, Price, PictureUrl, Summary, Material, Description, stockStatus (empty, inStock), Category)
 
@@ -109,4 +109,4 @@ Queue:
 
 ### UI Design
 
-TBD
+Homepage (Menu)
