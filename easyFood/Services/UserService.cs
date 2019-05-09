@@ -3,6 +3,8 @@ using System.Linq;
 using easyFood.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace easyFood.Services
 {
@@ -25,6 +27,12 @@ namespace easyFood.Services
         public User Get(string id)
         {
             return _users.Find<User>(user => user.Id == id).FirstOrDefault();
+        }
+
+        public User GetByEmail(string email)
+        {
+            var filter = Builders<User>.Filter.Eq("User.Email", email);
+            return _users.Find(filter).FirstOrDefault();   
         }
 
         public User Create(User user)

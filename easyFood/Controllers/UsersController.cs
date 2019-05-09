@@ -3,8 +3,10 @@ using easyFood.Models;
 using easyFood.Services;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace easyFood.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -41,9 +43,16 @@ namespace easyFood.Controllers
         [HttpPost]
         public ActionResult<User> Create(User user)
         {
-            _userService.Create(user);
+            var _user = _userService.GetByEmail(user.Email);
 
-            return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
+            if (_user==null) 
+            {
+                _userService.Create(user);
+
+                return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
+            }
+            
+            return NoContent();
         }
 
         // PUT api/users/5
@@ -76,6 +85,26 @@ namespace easyFood.Controllers
             _userService.Remove(user.Id);
 
             return NoContent();
+        }
+
+        // Login api/users/login
+        [HttpPost("login", Name="Login")]
+        public IActionResult Login(string email, string password)
+        {
+            var user = _userService.Get(email);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else if (user.Password!=password)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return user.Id;
+            }
         }
     }
 }
